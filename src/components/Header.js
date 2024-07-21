@@ -1,19 +1,49 @@
-import logo from "../assets/images/Gemini_Generated_Image.jpg";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../Utilities/Firebase";
+import logo from "../KRIYAASH.svg";
 const Header = () => {
-    return (
-        <div className="flex justify-between border border-solid border-gray-400 shadow-lg h-32 bg-emerald-600">
-            <div className="flex p-2 m-2" >
-                <img className="w-28  rounded-full" src={logo} />
+const navigate = useNavigate();
 
-                <h1 className="font-bold text-xl font-[cursive]  p-2 m-2"> CHINNU GALLERY </h1>
-            </div>
-            <div className="flex p-2 m-2">
-                <Link to="/Home" className="p-2 m-2 font-bold"> HOME </Link>
-                <Link to="/Cart" className="p-2 m-2 font-bold"> CART </Link>
-            </div>
-        </div>
 
-    )
+const handleSignOut = () => {
+
+    
+signOut(auth).then(() => {
+  // Sign-out successful.
+
+  navigate("/login");
+
+}).catch((error) => {
+  // An error happened.
+
+});
+}
+
+return (
+
+  <>
+            <div className="flex justify-between">
+            <div className="">
+            <img  src={logo} className=" w-44 pb-6" alt="logo" />
+            </div>
+            <div className="Nav-Items py-4">
+                <ul className="flex">
+
+                    <li className="px-4 font-bold">HOME</li>
+                  
+                    <li className="px-4 underline blue-500 font-bold "><Link to = "Contact">CONTACT</Link></li>
+                    <li className="px-4 font-bold">CART</li>
+                    <li className="px-4 underline blue-500 font-bold"><Link to = "IPLTABLE">IPLTABLE</Link></li>
+                    <li className="px-4 underline blue-500 font-bold "><Link to = "ITCities">ITCITIES</Link> </li>
+                     <button className="bg-indigo-700 rounded-lg px-1 font-bold" onClick={handleSignOut}>SIGN OUT</button>
+                    </ul>
+                   
+                    </div>
+                    </div>
+                  
+                    </>
+        )
 }
 export default Header;
+

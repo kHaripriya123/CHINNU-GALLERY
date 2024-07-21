@@ -1,59 +1,59 @@
+import { useEffect } from "react";
 import ArtCard from "./ArtCard";
-import artData from "../Utilities/mockdata";
 import { useState } from "react";
+import Header from "./Header";
+import Shimmer from "./Shimmer";
+import { Carousel } from "@material-tailwind/react";
+
 
 
 const Body = () => {
-   
-            
-    const [cards, setCards] = useState([ArtCard]);
-    const [sortOrder, setSortOrder] = useState('asc');
-    const handleSortClick = () => {
-        console.log(cards);
-        const sortedCards = [...cards].sort((a, b) => {
-            if (sortOrder === 'asc') {
-                return a.artPrice - b.artPrice;
-            }
-            else {
-                return b.artPrice - a.artPrice;
-            }
-        });
-        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-        setCards(sortedCards);
-    };
-    return (
-        <div>
 
-        <div>
+   const [listOfArts, setListOfArts] = useState([]);
 
-            <input className="border border-solid border-black" type="text" />
-            <button className="m-2 bg-[#f0ba0e] rounded-sm px-1"> Search </button>
-           </div>
-           <div>
-            <button
-                onClick={handleSortClick()}
-                className="m-2 p-2 rounded-sm bg-blue-400"
+   useEffect(() => {
 
-            > Price
+      fetchData();
 
-            </button>
-           
-            <ul>
-                {cards.map((card) => (
-                    <li key={card.artDate}>
-                        {card.artTitle} - {card.artPrice}
-                    </li>
-                ))}
-            </ul>
-            </div>
+   }, [])
 
-           <div className="flex flex-wrap">
+   const fetchData = async () => {
+      const data = await fetch("https://api.mojarto.com/public/landing/artistOfTheWeek/v2?size=6");
+      const json = await data.json();
+      console.log(json);
+      setListOfArts(json?.content);
 
-            {artData.map((card) => <ArtCard key={card.artDate} artData={card} />)}
-            </div>
 
-            </div>
-    );
+   }
 
-};
+   return listOfArts === 0 ? (
+      <Shimmer />
+   ) : ( 
+
+      <>
+      <div className="">
+<Carousel className=" rounded-lg w-1/4 h-1/4 object-cover  mx-auto left-0 right-0">
+          {listOfArts.map((items) => (<img src={items.imageUrl} alt={"image " + items.id}  className="w-full h-full pb-5 pl-5 pr-5 pt-5" />))}
+      
+    </Carousel>
+      <div> 
+         <div className="">
+         <input type="text"  className=""/>
+         </div>
+
+         <div className="mt-48 flex">
+
+            {listOfArts.map((items) => (<ArtCard key={items.id} galleryData={items} />))}
+
+
+         </div>
+
+      </div>
+      </div>
+      </>
+   )
+}
+
 export default Body;
+
+ 
