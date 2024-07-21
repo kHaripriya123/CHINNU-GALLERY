@@ -31,7 +31,7 @@ const Header = () => {
         </div>
         <div className="Nav-Items py-4">
           <ul className="flex">
-            <Button color="red">color red</Button>
+            <Button color="red">red color</Button>
             <li className="px-4 font-bold">HOME</li>
 
             <li className="px-4 underline blue-500 font-bold "><Link to="Contact">CONTACT</Link></li>
