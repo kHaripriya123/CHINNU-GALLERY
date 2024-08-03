@@ -28,32 +28,32 @@ const Body = () => {
 
    return listOfArts === 0 ? (
       <Shimmer />
-   ) : ( 
+   ) : (
 
       <>
-      <div className="">
-<Carousel className=" rounded-lg w-1/4 h-1/4 object-cover  mx-auto left-0 right-0">
-          {listOfArts.map((items) => (<img src={items.imageUrl} alt={"image " + items.id}  className="w-full h-full pb-5 pl-5 pr-5 pt-5" />))}
-      
-    </Carousel>
-      <div> 
          <div className="">
-         <input type="text"  className=""/>
+            <Carousel className="w-1/4 h-1/4 object-cover  mx-auto left-0 right-0">
+               {listOfArts.map((items) => (<img src={items.imageUrl} alt={"image " + items.id} className="w-full h-full pb-5 pl-5 pr-5 pt-5" />))}
+
+            </Carousel>
+            <div>
+               <div className="">
+                  <input type="text" className="" />
+               </div>
+
+               <div className="mt-48 flex">
+
+                  {listOfArts.map((items) => (<ArtCard key={items.id} galleryData={items} />))}
+
+
+               </div>
+
+            </div>
          </div>
-
-         <div className="mt-48 flex">
-
-            {listOfArts.map((items) => (<ArtCard key={items.id} galleryData={items} />))}
-
-
-         </div>
-
-      </div>
-      </div>
       </>
    )
 }
 
 export default Body;
 
- 
+
