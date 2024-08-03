@@ -38,9 +38,10 @@ const Header = () => {
             <li className="px-4 underline blue-500 font-bold"><Link to="IPLTABLE">IPLTABLE</Link></li>
             <li className="px-4 underline blue-500 font-bold "><Link to="ITCities">ITCITIES</Link> </li>
             <button className="bg-purple-800 rounded-lg px-1 font-bold text-white mr-3" onClick={handleSignOut}>SIGN OUT</button>
+         
           </ul>
-
         </div>
+       
       </div>
 
     </>
