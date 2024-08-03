@@ -1,7 +1,7 @@
-const Validate = (Email, Password, mobileNumber) => {
+const Validate = (email, password) => {
 
-    const emailValidate = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/.test(Email);
-    const passwordValidate = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/.test(Password);
+    const emailValidate = /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/.test(email);
+    const passwordValidate = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/.test(password);
   
 
    if(!emailValidate) return "Email is not valid"

@@ -7,65 +7,62 @@ import Contact from "./components/Contact";
 import ITCities from "./components/ITCities";
 import Login from "./components/Login";
 import { ThemeProvider } from "@material-tailwind/react";
-import { createBrowserRouter, RouterProvider , Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const AppLayout = () => {
     return (
         <div className="App">
-         
-        
-            
-           <Header/>
-            <Outlet />
-        
+
+            <Header/>
+            <Outlet/>
+
         </div>
     )
 }
 
 const AppRouter = createBrowserRouter(
     [
-        
+
         {
 
-    path : "/login",
-    element: <Login/>,
+            path: "/login",
+            element: <Login />,
+
+            
         },
 
-    {
+        {
 
-        path : "/",
-        element: <AppLayout/>,
-        
+            path: "/",
+            element: <AppLayout />,
 
-       
-        children: [
 
-            {
-                path : "/",
-                element: <Body/>
-            },
 
-            
-            
-        
-         {
-           path : "/contact",
-           element: <Contact/>
-       },
+            children: [
 
-       
-    {
-        path : "/IPLTABLE",
-       element : <IplTable/>,
-   },
-{
-path : "/ITCities",
-element : <ITCities/>
-},
+                {
+                    path: "/",
+                    element: <Body />
+                },
 
-    
-]
- },
-])
+                {
+                    path: "/contact",
+                    element: <Contact />
+                },
+
+
+                {
+                    path: "/IPLTABLE",
+                    element: <IplTable />,
+                },
+                {
+                    path: "/ITCities",
+                    element: <ITCities />
+                },
+
+
+            ]
+        },
+    ])
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ThemeProvider><RouterProvider router = {AppRouter} /></ThemeProvider>);
+root.render(<ThemeProvider><RouterProvider router={AppRouter} /></ThemeProvider>);

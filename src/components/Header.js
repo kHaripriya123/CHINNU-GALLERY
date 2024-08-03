@@ -27,21 +27,21 @@ const Header = () => {
     <>
       <div className="flex justify-between">
         <div className="">
-          <img src={logo} className=" w-44 pb-6" alt="logo" />
+          <img src={logo} className="w-52" alt="logo"/>
         </div>
-        <div className="Nav-Items py-4">
+        <div className="Nav-Items py-4 mt-6">
           <ul className="flex">
-            <Button color="red">red color</Button>
+            
             <li className="px-4 font-bold">HOME</li>
-
-            <li className="px-4 underline blue-500 font-bold "><Link to="Contact">CONTACT</Link></li>
+           
             <li className="px-4 font-bold">CART</li>
             <li className="px-4 underline blue-500 font-bold"><Link to="IPLTABLE">IPLTABLE</Link></li>
             <li className="px-4 underline blue-500 font-bold "><Link to="ITCities">ITCITIES</Link> </li>
-            <button className="bg-indigo-700 rounded-lg px-1 font-bold" onClick={handleSignOut}>SIGN OUT</button>
+            <button className="bg-purple-800 rounded-lg px-1 font-bold text-white mr-3" onClick={handleSignOut}>SIGN OUT</button>
+         
           </ul>
-
         </div>
+       
       </div>
 
     </>
