@@ -48,6 +48,8 @@ const Body = () => {
          <div>
             <div className="">
                <input type="text" className="" />
+
+               <button>blue button</button>
             </div>
 
 
