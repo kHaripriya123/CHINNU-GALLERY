@@ -8,6 +8,10 @@ import ITCities from "./components/ITCities";
 import Login from "./components/Login";
 import { ThemeProvider } from "@material-tailwind/react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import UserTable from "./components/UserTable";
+import UserForm from "./components/UserForm";
+import CardDetails from "./components/CardDetails";
+import ArtData from "./components/ArtData";
 
 const AppLayout = () => {
     return (
@@ -41,28 +45,40 @@ const AppRouter = createBrowserRouter(
             children: [
 
                 {
-                    path: "/",
-                    element: <Body />
+                    path : "/",
+                    element : <Body/>,
                 },
 
                 {
                     path: "/contact",
-                    element: <Contact />
+                    element: <Contact />,
                 },
 
 
                 {
-                    path: "/IPLTABLE",
+                    path: "/ipltable",
                     element: <IplTable />,
                 },
                 {
-                    path: "/ITCities",
-                    element: <ITCities />
+                    path: "/itcities",
+                    element: <ITCities />,
                 },
+                {
+                    path : "/usertable",
+                    element : <UserTable/>,
+                },
+                {
+                    path : "/userform",
+                    element : <UserForm/>,
+                },
+                {
+                    path : "/artworks/:paintId",
+                    element : <ArtData/>,
+                },
+                
 
-
-            ]
+            ],
         },
     ])
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ThemeProvider><RouterProvider router={AppRouter} /></ThemeProvider>);
+root.render(<RouterProvider router={AppRouter} />);

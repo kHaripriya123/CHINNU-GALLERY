@@ -4,7 +4,8 @@ import { useState } from "react";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
 import { Carousel } from "@material-tailwind/react";
-
+import Serigraphy from "./ArtsByPrice";
+import ArtsByPrice from "./ArtsByPrice";
 
 
 const Body = () => {
@@ -18,39 +19,51 @@ const Body = () => {
    }, [])
 
    const fetchData = async () => {
-      const data = await fetch("https://api.mojarto.com/public/landing/artistOfTheWeek/v2?size=6");
+      const data = await fetch("https://api.mojarto.com/public/landing/homePageBanner");
       const json = await data.json();
       console.log(json);
-      setListOfArts(json?.content);
+      setListOfArts(json);
 
 
    }
+
+   const handleClick = () => {
+      console.log("clicked");
+
+   }
+
+
 
    return listOfArts === 0 ? (
       <Shimmer />
    ) : (
 
-      <>
-         <div className="">
-            <Carousel className="w-1/4 h-1/4 object-cover  mx-auto left-0 right-0">
-               {listOfArts.map((items) => (<img src={items.imageUrl} alt={"image " + items.id} className="w-full h-full pb-5 pl-5 pr-5 pt-5" />))}
 
-            </Carousel>
+      <div className="">
+         <Carousel className="w-3/4 h-3/4 object-cover  mx-auto left-0 right-0">
+            {listOfArts.map((items) => (<img src={items.bannerImageUrl} alt={"image " + items.id} className="w-full h-full pb-5 pl-5 pr-5 pt-5"
+               onClick={handleClick} />))}
+
+         </Carousel>
+         <div>
+            <div className="">
+               <input type="text" className="" />
+            </div>
+
+
             <div>
-               <div className="">
-                  <input type="text" className="" />
-               </div>
+               <ArtsByPrice />
 
-               <div className="mt-48 flex">
-
-                  {listOfArts.map((items) => (<ArtCard key={items.id} galleryData={items} />))}
-
-
-               </div>
 
             </div>
+
          </div>
-      </>
+
+
+      </div>
+
+
+
    )
 }
 
