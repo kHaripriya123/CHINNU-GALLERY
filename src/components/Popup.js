@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 
 const Popup = ({ data, handlePopup, editMode, updateTeamData }) => {
-  
+
   const [teamData, setTeamData] = useState(data);
 
   useEffect(() => {
@@ -39,27 +39,27 @@ const Popup = ({ data, handlePopup, editMode, updateTeamData }) => {
           {editMode ? (
             <>
               <label>
-                Team: 
+                Team:
                 <input type="text" name="team" value={teamData.team} onChange={handleChange} readOnly />
               </label>
 
               <label>
-                Played: 
+                Played:
                 <input type="number" name="played" value={teamData.played} onChange={handleChange} />
               </label>
 
               <label>
-                Won: 
+                Won:
                 <input type="number" name="won" value={teamData.won} onChange={handleChange} />
               </label>
 
               <label>
-                Lost: 
+                Lost:
                 <input type="number" name="lost" value={teamData.lost} onChange={handleChange} />
               </label>
 
               <label>
-                Points: 
+                Points:
                 <input type="number" name="points" value={teamData.points} onChange={handleChange} />
               </label>
 

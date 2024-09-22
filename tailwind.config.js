@@ -5,7 +5,11 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./src/**/*.{html,js,jsx}",],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customPurple: '#521248',
+      },
+    },
   },
   plugins: [],
 });

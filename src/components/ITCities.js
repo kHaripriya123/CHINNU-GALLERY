@@ -1,4 +1,5 @@
 import { Button } from "@material-tailwind/react";
+import FetchExcelData from "./FetchExcelData";
 
 const cityData = [{
     "city": "Bangalore",
@@ -61,6 +62,12 @@ const cityData = [{
 const ITCities = () => {
   return (
     <div>
+
+      
+<div>
+      <FetchExcelData/>
+      </div>
+      <div>
       <table  className="table-auto w-full  px-4 py-2">
         <thead className="">             
           <tr>
@@ -88,10 +95,10 @@ const ITCities = () => {
         </tbody>
       </table>
 
-      
-
+      </div>
     </div>
   )
 }
 
 export default ITCities;
+
