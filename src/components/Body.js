@@ -4,9 +4,8 @@ import { useState } from "react";
 import Header from "./Header";
 import Shimmer from "./Shimmer";
 import { Carousel } from "@material-tailwind/react";
-import Serigraphy from "./ArtsByPrice";
 import ArtsByPrice from "./ArtsByPrice";
-
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -52,7 +51,7 @@ const Body = () => {
 
 
             <div>
-               <ArtsByPrice />
+              <ArtsByPrice />
 
 
             </div>

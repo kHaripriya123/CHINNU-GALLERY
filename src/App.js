@@ -11,14 +11,15 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserTable from "./components/UserTable";
 import UserForm from "./components/UserForm";
 import CardDetails from "./components/CardDetails";
-import ArtData from "./components/ArtData";
+import ArtsByPrice from "./components/ArtsByPrice";
+import Arts from "./components/Arts";
 
 const AppLayout = () => {
     return (
         <div className="App">
 
-            <Header/>
-            <Outlet/>
+            <Header />
+            <Outlet />
 
         </div>
     )
@@ -32,7 +33,7 @@ const AppRouter = createBrowserRouter(
             path: "/login",
             element: <Login />,
 
-            
+
         },
 
         {
@@ -45,8 +46,8 @@ const AppRouter = createBrowserRouter(
             children: [
 
                 {
-                    path : "/",
-                    element : <Body/>,
+                    path: "/",
+                    element: <Body />,
                 },
 
                 {
@@ -64,18 +65,17 @@ const AppRouter = createBrowserRouter(
                     element: <ITCities />,
                 },
                 {
-                    path : "/usertable",
-                    element : <UserTable/>,
+                    path: "/usertable",
+                    element: <UserTable />,
                 },
                 {
-                    path : "/userform",
-                    element : <UserForm/>,
+                    path: "/userform",
+                    element: <UserForm />,
                 },
-                {
-                    path : "/artworks/:paintId",
-                    element : <ArtData/>,
-                },
-                
+               {
+                     path : "artworks",
+                     element : <Arts/>,
+               }
 
             ],
         },
